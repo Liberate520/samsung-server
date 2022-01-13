@@ -28,25 +28,23 @@ public class Server {
                 Socket client = serverSocket.accept();
                 System.out.println("Client connected " + client.getInetAddress());
                 in = new Scanner(client.getInputStream());
-                int timeOut = 2000;
-                while (timeOut>0) {
+                    System.out.println("точка 1");
                     if (in.hasNext()) {
                         String androidID = in.nextLine();
-                        PrintWriter printWriter = new PrintWriter(client.getOutputStream());
-                        int[] stat = gameService.readStat(androidID);
-                        printWriter.println("stat " + stat[0] +" "+ stat[1]);
-                        printWriter.flush();
-                        printWriter.close();
-                        in.close();
-                        continue A;
+                        System.out.println(androidID);
+                        if (androidID.split(" ")[0].equals("stat")) {
+                            PrintWriter printWriter = new PrintWriter(client.getOutputStream());
+                            int[] stat = gameService.readStat(androidID.split(" ")[1]);
+                            printWriter.println("stat " + stat[0] + " " + stat[1]);
+                            printWriter.flush();
+                            printWriter.close();
+                            in.close();
+                            continue A;
+                        }
                     }
-                    timeOut -= 100;
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
+
+                System.out.println("точка 2");
+
                 clients.put(UUID.randomUUID().toString(), client);
                 if (clients.size() == 2) {
                     List<Socket> pair = new ArrayList<>(clients.values());
