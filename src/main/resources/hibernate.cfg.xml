@@ -7,9 +7,9 @@
     <session-factory>
         <!-- Database connection settings -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://ec2-23-23-133-10.compute-1.amazonaws.com:5432/ddc3uh184snbru?sslmode=require</property>
-        <property name="hibernate.connection.username">dlaxyzdtgzceyv</property>
-        <property name="hibernate.connection.password">825da2132cb02b857376cef73c39532f144e32c0e7f2202670ebbd4a4b198eff</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/postgres</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">cv2CE5bi</property>
         <property name="hibernate.connection.pool_size">3</property>
         <property name="show_sql">true</property>
         <property name="dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
