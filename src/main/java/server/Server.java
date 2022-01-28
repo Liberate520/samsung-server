@@ -21,7 +21,7 @@ public class Server {
         GameService gameService = new GameService();
         Scanner in;
         try {
-            serverSocket = new ServerSocket(8081);
+            serverSocket = new ServerSocket(8080);
             System.out.println("server started...");
             while (true) {
                 Socket client = serverSocket.accept();
